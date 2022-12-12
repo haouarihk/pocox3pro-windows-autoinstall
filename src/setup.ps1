@@ -35,24 +35,20 @@ function setup-binaries{
   .\platform-tools\adb.exe shell "chmod +x /sbin/*"
 }
 
-# check if adbInstaller.exe exists, if it doesn't then
-# get https://dl.google.com/android/repository/platform-tools_r33.0.3-windows.zip > adbtools.zip
+if(-not($(.\platform-tools\adb.exe devices) -match "recovery"))
+{
+  # assumes that you're anywhere, without twrp
+  .\platform-tools\adb.exe reboot fastboot
+  $fastboot wait-for-device shell "echo connected"
 
-
-# if(-not($(.\platform-tools\adb.exe devices) -match "recovery"))
-# {
-#   # assumes that you're anywhere, without twrp
-#   .\platform-tools\adb.exe reboot fastboot
-#   $fastboot wait-for-device shell "echo connected"
-
-#   # install recovery
-#   # Boot into recovery
-
-#   $fastboot reboot recovery
-#   sleep 15
-# } else {
-#   Write-Output "already in recovery, nice"
-# }
+  # TODO: install recovery
+  
+  # Boot into recovery
+  $fastboot reboot recovery
+  sleep 15
+} else {
+  Write-Output "already in recovery, nice"
+}
 
 # get phone specifications
 Write-Output "Getting phone specifications.."

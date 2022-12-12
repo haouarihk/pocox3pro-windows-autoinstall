@@ -62,9 +62,9 @@ if(($espVolLetter -match $lastVolLetter) -and ($winVolLetter -match $beforeLastV
 }
 
 # disable mtp
-# .\platform-tools\adb.exe shell EnMTP
-# wait-for-recovery-device
-# .\platform-tools\adb.exe shell DisMTP
+.\platform-tools\adb.exe shell EnMTP
+wait-for-recovery-device
+.\platform-tools\adb.exe shell DisMTP
 wait-for-recovery-device
 # run msc
 .\platform-tools\adb.exe shell "sh /sbin/msc.sh"

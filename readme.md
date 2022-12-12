@@ -25,3 +25,16 @@ USE AT YOUR OWN RISK.
 - If you just want to know specifications of your device (panel type, ram, storage), you can use `show-specifications.bat`. (run as administrator)
 - if you just want to reinstall windows, without doing the repartitioning, use the `reinstall-windows.bat`. (run as administrator)
 - if you want to just install the drivers, without doing anything else, use the `reinstall-drivers.bat`. (run as administrator)
+
+
+
+## Issues:
+- can't detect the phone reliably from diskpart.
+- the script needs cleaning.
+
+
+
+
+## Credits:
+
+- [Halal-Beef](https://github.com/halal-beef) `helped with MTP enable/disable, also helped a bit with some aspects of logic`
