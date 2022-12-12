@@ -1,0 +1,17 @@
+#!/sbin/bash
+
+echo "DisMTP - MTP Disabling script"
+echo "Credits: gus33000 Nebrassy CaptainThrowback halal-beef"
+echo "Disabling MTP..."
+
+setprop sys.usb.config "adb"
+echo 0x00 > /config/usb_gadget/g1/bDeviceClass; echo 0x00 > /config/usb_gadget/g1/bDeviceSubClass; echo 0x00 > /config/usb_gadget/g1/bDeviceProtocol
+echo "adb">>/config/usb_gadget/g1/configs/b.1/strings/0x409/configuration
+    rm /config/usb_gadget/g1/configs/b.1/f1
+    rm /config/usb_gadget/g1/configs/b.1/f2
+    rm /config/usb_gadget/g1/configs/b.1/f3
+    rm /config/usb_gadget/g1/configs/b.1/f4
+    rm /config/usb_gadget/g1/configs/b.1/f5
+ln -s /config/usb_gadget/g1/functions/ffs.adb/ /config/usb_gadget/g1/configs/b.1/f1
+sh -c 'echo > /config/usb_gadget/g1/UDC; echo a600000.dwc3 > /config/usb_gadget/g1/UDC' &
+setprop sys.usb.state "adb"

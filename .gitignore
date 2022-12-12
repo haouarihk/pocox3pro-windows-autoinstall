@@ -1,0 +1,13 @@
+windows-arm.iso
+downloads
+
+# extracted
+diskpart
+platform-tools
+DriverUpdater
+drivers
+uefi
+
+# temp files
+tmp
+temp
