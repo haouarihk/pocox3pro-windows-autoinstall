@@ -20,7 +20,7 @@ function wait-for-fastboot-device{
 
 function setup-binaries{
   if(-not(Test-Path -Path .\bin\parted)){
-    Invoke-WebRequest https://dl.google.com/android/repository/platform-tools_r33.0.3-windows.zip -OutFile bin\msc.sh
+    Invoke-WebRequest https://github.com/Icesito68/Port-Windows-11-Poco-X3-pro/releases/download/binaries/parted -OutFile bin\parted
     if(-not(Test-Path -Path .\bin\parted)){
       Write-Output "couldn't download parted"
       exit
